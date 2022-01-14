@@ -1,0 +1,11 @@
+{
+  "name": "flashlibskyrim",
+  "version-string": "1",
+  "description": "An add-on for CommonLibSSE with extra features for working with Scaleform/Flash",
+  "homepage": "https://github.com/Exit-9B/FlashLibSkyrim",
+  "license": "MIT",
+  "supports": "windows & x64",
+  "dependencies": [
+    "tsl-ordered-map"
+  ]
+}
