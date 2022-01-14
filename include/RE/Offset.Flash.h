@@ -1,39 +1,57 @@
 #pragma once
 
+// NOTE: Due to a bug in the old version of Address Library, we do not have IDs for many of the
+// virtual function tables for Scaleform objects. Instead, we use an offset from the closest ID
+// for version 1.5.97, as a best guess for where the offset could be in a different game version.
+
 namespace Offset
 {
 	namespace GASActionBufferData
 	{
-		inline constexpr REL::ID Vtbl(242366);
+		// SkyrimSE 1.5.97.0: 0x17BC3F0
+		inline static std::uintptr_t Vtbl =
+			REL::Relocation<std::uintptr_t>(REL::ID(291566), 0x38).address();
 	}
 
 	namespace GASDoAction
 	{
-		inline constexpr REL::ID Vtbl(242413);
+
+		// SkyrimSE 1.5.97.0: 0x17BC9C0
+		inline constexpr REL::ID Vtbl(291613);
 	}
 
 	namespace GFxInitImportActions
 	{
-		inline constexpr REL::ID Vtbl(244866);
+		// SkyrimSE 1.5.97.0: 0x17DC4C8
+		inline static std::uintptr_t Vtbl =
+			REL::Relocation<std::uintptr_t>(REL::ID(292202), 0x2C0).address();
 	}
 
 	namespace GFxPlaceObject2
 	{
-		inline constexpr REL::ID Vtbl(242592);
+		// SkyrimSE 1.5.97.0: 0x17BE0E0
+		inline static std::uintptr_t Vtbl =
+			REL::Relocation<std::uintptr_t>(REL::ID(291775), 0x128).address();
 	}
 
 	namespace GFxPlaceObject3
 	{
-		inline constexpr REL::ID Vtbl(242593);
+		// SkyrimSE 1.5.97.0: 0x17BE138
+		inline static std::uintptr_t Vtbl =
+			REL::Relocation<std::uintptr_t>(REL::ID(291775), 0x180).address();
 	}
 
 	namespace GFxRemoveObject
 	{
-		inline constexpr REL::ID Vtbl(244863);
+		// SkyrimSE 1.5.97.0: 0x17DC408
+		inline static std::uintptr_t Vtbl =
+			REL::Relocation<std::uintptr_t>(REL::ID(292202), 0x200).address();
 	}
 
 	namespace GFxRemoveObject2
 	{
-		inline constexpr REL::ID Vtbl(244864);
+		// SkyrimSE 1.5.97.0: 0x17DC448
+		inline static std::uintptr_t Vtbl =
+			REL::Relocation<std::uintptr_t>(REL::ID(292202), 0x240).address();
 	}
 }
