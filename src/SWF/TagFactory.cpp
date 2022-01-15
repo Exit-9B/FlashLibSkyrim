@@ -33,10 +33,10 @@ namespace SWF
 		};
 
 		static REL::Relocation<std::uintptr_t> GFxPlaceObject2_vtbl{
-			Offset::GFxPlaceObject2::Vtbl
+			RE::Offset::GFxPlaceObject2::Vtbl
 		};
 		static REL::Relocation<std::uintptr_t> GFxPlaceObject3_vtbl{
-			Offset::GFxPlaceObject2::Vtbl
+			RE::Offset::GFxPlaceObject2::Vtbl
 		};
 
 		SWFOutputStream sos;
@@ -125,7 +125,7 @@ namespace SWF
 		-> RE::GFxRemoveObject2*
 	{
 		static REL::Relocation<std::uintptr_t> GFxRemoveObject2_vtbl{
-			Offset::GFxRemoveObject2::Vtbl
+			RE::Offset::GFxRemoveObject2::Vtbl
 		};
 
 		auto removeObject = static_cast<RE::GFxRemoveObject2*>(
@@ -148,7 +148,7 @@ namespace SWF
 		std::uint16_t a_depth) -> RE::GFxRemoveObject*
 	{
 		static REL::Relocation<std::uintptr_t> GFxRemoveObject_vtbl{
-			Offset::GFxRemoveObject::Vtbl
+			RE::Offset::GFxRemoveObject::Vtbl
 		};
 
 		auto removeObject = static_cast<RE::GFxRemoveObject*>(
@@ -166,11 +166,12 @@ namespace SWF
 		return removeObject;
 	}
 
-	auto TagFactory::MakeInitImportActions(RE::GFxMovieDataDef* a_movieData, std::uint32_t a_movieIndex)
-		-> RE::GFxInitImportActions*
+	auto TagFactory::MakeInitImportActions(
+		RE::GFxMovieDataDef* a_movieData,
+		std::uint32_t a_movieIndex) -> RE::GFxInitImportActions*
 	{
 		static REL::Relocation<std::uintptr_t> GFxInitImportActions_vtbl{
-			Offset::GFxInitImportActions::Vtbl
+			RE::Offset::GFxInitImportActions::Vtbl
 		};
 
 		auto initImportActions = static_cast<RE::GFxInitImportActions*>(
@@ -188,10 +189,11 @@ namespace SWF
 		return initImportActions;
 	}
 
-	auto TagFactory::MakeDoAction(RE::GFxMovieDataDef* a_movieData, RE::GASActionBufferData* a_data)
-		-> RE::GASDoAction*
+	auto TagFactory::MakeDoAction(
+		RE::GFxMovieDataDef* a_movieData,
+		RE::GASActionBufferData* a_data) -> RE::GASDoAction*
 	{
-		static REL::Relocation<std::uintptr_t> GASDoAction_vtbl{ Offset::GASDoAction::Vtbl };
+		static REL::Relocation<std::uintptr_t> GASDoAction_vtbl{ RE::Offset::GASDoAction::Vtbl };
 
 		auto doAction = static_cast<RE::GASDoAction*>(
 			a_movieData->loadTaskData->allocator.Alloc(sizeof(RE::GASDoAction)));

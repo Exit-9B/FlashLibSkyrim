@@ -1,39 +1,42 @@
 #pragma once
 
-namespace Offset
+namespace RE
 {
-	namespace GASActionBufferData
+	namespace Offset
 	{
-		inline constexpr REL::ID Vtbl(242366);
-	}
+		namespace GASActionBufferData
+		{
+			inline constexpr REL::ID Vtbl(242366);
+		}
 
-	namespace GASDoAction
-	{
-		inline constexpr REL::ID Vtbl(242413);
-	}
+		namespace GASDoAction
+		{
+			inline constexpr REL::ID Vtbl(242413);
+		}
 
-	namespace GFxInitImportActions
-	{
-		inline constexpr REL::ID Vtbl(244866);
-	}
+		namespace GFxInitImportActions
+		{
+			inline constexpr REL::ID Vtbl(244866);
+		}
 
-	namespace GFxPlaceObject2
-	{
-		inline constexpr REL::ID Vtbl(242592);
-	}
+		namespace GFxPlaceObject2
+		{
+			inline constexpr REL::ID Vtbl(242592);
+		}
 
-	namespace GFxPlaceObject3
-	{
-		inline constexpr REL::ID Vtbl(242593);
-	}
+		namespace GFxPlaceObject3
+		{
+			inline constexpr REL::ID Vtbl(242593);
+		}
 
-	namespace GFxRemoveObject
-	{
-		inline constexpr REL::ID Vtbl(244863);
-	}
+		namespace GFxRemoveObject
+		{
+			inline constexpr REL::ID Vtbl(244863);
+		}
 
-	namespace GFxRemoveObject2
-	{
-		inline constexpr REL::ID Vtbl(244864);
+		namespace GFxRemoveObject2
+		{
+			inline constexpr REL::ID Vtbl(244864);
+		}
 	}
 }
