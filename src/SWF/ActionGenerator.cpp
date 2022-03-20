@@ -30,7 +30,6 @@ namespace SWF
 	void ActionGenerator::FlushConstantPool()
 	{
 		if (!_constantPool.empty()) {
-
 			std::uint16_t size = _constantPoolSize - 3;
 			std::uint16_t count = static_cast<std::uint16_t>(_constantPool.size());
 
@@ -91,8 +90,7 @@ namespace SWF
 			auto item = _constantPool.find(a_value);
 			if (item != _constantPool.end()) {
 				registerNum = item->second;
-			}
-			else {
+			} else {
 				if (_constantPool.empty()) {
 					_constantPoolSize += 5;
 				}
@@ -107,15 +105,13 @@ namespace SWF
 				_temporary.WriteUI16(2);
 				_temporary.WriteUI8(8);
 				_temporary.WriteUI8(registerNum & 0xFF);
-			}
-			else {
+			} else {
 				_temporary.WriteUI8(0x96);
 				_temporary.WriteUI16(2);
 				_temporary.WriteUI8(9);
 				_temporary.WriteUI16(registerNum);
 			}
-		}
-		else {
+		} else {
 			_temporary.WriteUI8(0x96);
 			_temporary.WriteUI16(2);
 			_temporary.WriteUI8(0);
@@ -198,7 +194,7 @@ namespace SWF
 
 		auto [begin, end] = _undefinedLabels.equal_range(std::addressof(a_label));
 		for (auto it = begin; it != end; ++it) {
-			auto& labelRef = it->second;
+			auto&        labelRef = it->second;
 			std::int16_t offset = a_label.loc - labelRef.programCounter;
 			_definedLabels[labelRef.writePos] = offset;
 		}
@@ -249,24 +245,22 @@ namespace SWF
 	}
 
 	void ActionGenerator::AddUndefinedLabel(
-		Label& a_label,
+		Label&       a_label,
 		std::int16_t a_writePos,
 		std::int16_t a_programPos)
 	{
 		_undefinedLabels.insert(
-			{
-				std::addressof(a_label),
+			{ std::addressof(a_label),
 				LabelRef{
 					a_writePos,
 					a_programPos,
-				}
-			});
+				} });
 	}
 
 	auto ActionGenerator::InitBuffer(std::size_t a_size) -> std::uint8_t*
 	{
 		static REL::Relocation<std::uintptr_t> GASActionBufferData_vtbl{
-			Offset::GASActionBufferData::Vtbl
+			RE::Offset::GASActionBufferData::Vtbl
 		};
 
 		_bufferData = static_cast<RE::GASActionBufferData*>(

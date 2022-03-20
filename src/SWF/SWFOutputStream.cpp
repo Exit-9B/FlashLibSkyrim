@@ -95,9 +95,9 @@ namespace SWF
 	{
 		union FloatToInt
 		{
-			float value;
+			float         value;
 			std::uint32_t intBits;
-			char bytes[sizeof(double)];
+			char          bytes[sizeof(double)];
 		};
 
 		FloatToInt cv{ .value = a_value };
@@ -109,7 +109,7 @@ namespace SWF
 	{
 		union DoubleToInt
 		{
-			double value;
+			double        value;
 			std::uint64_t intBits;
 		};
 
@@ -263,10 +263,10 @@ namespace SWF
 		};
 
 		bool knockOut = a_value.filterType.all(FilterType::kFlag_KnockOut) ||
-			filterMode.all(FilterMode::Filter_Knockout);
+		                filterMode.all(FilterMode::Filter_Knockout);
 
 		bool compositeSource = a_value.filterType.none(FilterType::kFlag_HideObject) &&
-			filterMode.none(FilterMode::Filter_HideObject);
+		                       filterMode.none(FilterMode::Filter_HideObject);
 
 		switch (filterType) {
 		case FilterType::kDropShadow:
@@ -358,9 +358,9 @@ namespace SWF
 
 	auto SWFOutputStream::GetNeededBitsS(std::int32_t a_value) -> std::int32_t
 	{
-		std::int32_t counter = 32;
+		std::int32_t  counter = 32;
 		std::uint32_t mask = 0x80000000;
-		std::int32_t val = std::abs(a_value);
+		std::int32_t  val = std::abs(a_value);
 		while (((val & mask) == 0) && (counter > 0)) {
 			mask >>= 1;
 			counter -= 1;
