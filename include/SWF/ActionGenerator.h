@@ -13,7 +13,7 @@ namespace SWF
 	protected:
 		struct Label
 		{
-			bool defined = false;
+			bool         defined = false;
 			std::int16_t loc = 0;
 		};
 
@@ -78,13 +78,13 @@ namespace SWF
 		auto InitBuffer(std::size_t a_size) -> std::uint8_t*;
 
 		RE::GASActionBufferData* _bufferData;
-		SWFOutputStream _committed;
-		SWFOutputStream _temporary;
+		SWFOutputStream          _committed;
+		SWFOutputStream          _temporary;
 
 		tsl::ordered_map<std::string, std::uint16_t> _constantPool;
-		std::int16_t _constantPoolSize = 0;
+		std::int16_t                                 _constantPoolSize = 0;
 
-		std::unordered_multimap<Label*, LabelRef> _undefinedLabels;
+		std::unordered_multimap<Label*, LabelRef>      _undefinedLabels;
 		std::unordered_map<std::int16_t, std::int16_t> _definedLabels;
 	};
 }
