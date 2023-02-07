@@ -5,8 +5,6 @@
 #include <REL/Relocation.h>
 #include <SKSE/SKSE.h>
 
-#include "RE/Skyrim.Flash.h"
-
 #include <tsl/ordered_map.h>
 #pragma warning(pop)
 

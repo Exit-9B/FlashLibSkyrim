@@ -259,7 +259,7 @@ namespace SWF
 		FilterType filterType = static_cast<FilterType>(a_value.filterType.underlying() & 0xF);
 
 		RE::stl::enumeration<FilterMode, std::uint32_t> filterMode{
-			static_cast<FilterMode>(a_value.filterParams.mode)
+			static_cast<FilterMode>(a_value.blurFilterParams.mode)
 		};
 
 		bool knockOut = a_value.filterType.all(FilterType::kFlag_KnockOut) ||
@@ -270,46 +270,46 @@ namespace SWF
 
 		switch (filterType) {
 		case FilterType::kDropShadow:
-			WriteRGBA(a_value.filterParams.color);
-			WriteFIXED(a_value.filterParams.blurX);
-			WriteFIXED(a_value.filterParams.blurY);
+			WriteRGBA(a_value.blurFilterParams.color);
+			WriteFIXED(a_value.blurFilterParams.blurX);
+			WriteFIXED(a_value.blurFilterParams.blurY);
 			WriteFIXED(a_value.angle);
 			WriteFIXED(a_value.distance);
-			WriteFIXED8(a_value.filterParams.strength);
+			WriteFIXED8(a_value.blurFilterParams.strength);
 			WriteUB(1, filterMode.all(FilterMode::Filter_Inner));
 			WriteUB(1, knockOut);
 			WriteUB(1, compositeSource);
-			WriteUB(5, a_value.filterParams.passes);
+			WriteUB(5, a_value.blurFilterParams.passes);
 			break;
 		case FilterType::kBlur:
-			WriteFIXED(a_value.filterParams.blurX);
-			WriteFIXED(a_value.filterParams.blurY);
-			WriteUB(5, a_value.filterParams.passes);
+			WriteFIXED(a_value.blurFilterParams.blurX);
+			WriteFIXED(a_value.blurFilterParams.blurY);
+			WriteUB(5, a_value.blurFilterParams.passes);
 			WriteUB(3, 0);
 			break;
 		case FilterType::kGlow:
-			WriteRGBA(a_value.filterParams.color);
-			WriteFIXED(a_value.filterParams.blurX);
-			WriteFIXED(a_value.filterParams.blurY);
-			WriteFIXED8(a_value.filterParams.strength);
+			WriteRGBA(a_value.blurFilterParams.color);
+			WriteFIXED(a_value.blurFilterParams.blurX);
+			WriteFIXED(a_value.blurFilterParams.blurY);
+			WriteFIXED8(a_value.blurFilterParams.strength);
 			WriteUB(1, filterMode.all(FilterMode::Filter_Inner));
 			WriteUB(1, knockOut);
 			WriteUB(1, compositeSource);
-			WriteUB(5, a_value.filterParams.passes);
+			WriteUB(5, a_value.blurFilterParams.passes);
 			break;
 		case FilterType::kBevel:
-			WriteRGBA(a_value.filterParams.color);
-			WriteRGBA(a_value.filterParams.color2);
-			WriteFIXED(a_value.filterParams.blurX);
-			WriteFIXED(a_value.filterParams.blurY);
+			WriteRGBA(a_value.blurFilterParams.color);
+			WriteRGBA(a_value.blurFilterParams.color2);
+			WriteFIXED(a_value.blurFilterParams.blurX);
+			WriteFIXED(a_value.blurFilterParams.blurY);
 			WriteFIXED(a_value.angle);
 			WriteFIXED(a_value.distance);
-			WriteFIXED8(a_value.filterParams.strength);
+			WriteFIXED8(a_value.blurFilterParams.strength);
 			WriteUB(1, filterMode.all(FilterMode::Filter_Inner));
 			WriteUB(1, knockOut);
 			WriteUB(1, compositeSource);
 			WriteUB(1, 0);
-			WriteUB(4, a_value.filterParams.passes);
+			WriteUB(4, a_value.blurFilterParams.passes);
 			break;
 		case FilterType::kGradientGlow:
 			// not supported
